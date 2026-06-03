@@ -1,0 +1,49 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User account details and minimal preference metadata designed to be fast and cost-efficient.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Unique user identifier from Firebase Authentication."
+        },
+        "name": {
+          "type": "string",
+          "description": "The user's display name."
+        },
+        "email": {
+          "type": "string",
+          "description": "The user's verified registration email."
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "Display avatar image or placeholder icon."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Account initialization timestamp."
+        },
+        "lastLogin": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last sign-in session event."
+        },
+        "accountStatus": {
+          "type": "string",
+          "enum": ["Free Tier", "Creator Pro", "VideoKing Developer"],
+          "description": "Account premium access tier."
+        }
+      },
+      "required": ["uid", "email"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Private profile document indexed securely under the user's specific UID."
+    }
+  }
+}

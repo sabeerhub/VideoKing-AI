@@ -1,0 +1,63 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global Safety Net default-deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper Primitives
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidUser(data) {
+      return data.uid == request.auth.uid 
+             && data.email is string 
+             && data.email.size() <= 200 
+             && data.name is string 
+             && data.name.size() <= 200;
+    }
+
+    // Secure User Document Profiles Gate
+    match /users/{userId} {
+      // Users can only view their own user profile document
+      allow get: if isSignedIn() && isOwner(userId);
+      
+      // Prohibit full-collection user index listing searches
+      allow list: if false;
+
+      // Create profile with strict own identity matching limits
+      allow create: if isSignedIn() 
+                    && isOwner(userId) 
+                    && isValidUser(incoming())
+                    && incoming().accountStatus == 'Free Tier'; // Default level, block self-assigned pro roles
+
+      // Update basic fields dynamically without elevating account tier status or modifying initial UIDs/emails
+      allow update: if isSignedIn()
+                    && isOwner(userId)
+                    && isValidUser(incoming())
+                    && incoming().createdAt == existing().createdAt
+                    && incoming().email == existing().email
+                    && (
+                      incoming().diff(existing()).affectedKeys().hasOnly(['name', 'photoURL', 'lastLogin'])
+                    );
+
+      // Block permanent account erasure via frontend requests
+      allow delete: if false;
+    }
+  }
+}

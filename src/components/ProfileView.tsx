@@ -49,48 +49,48 @@ export default function ProfileView({ userProfile, onClose }: ProfileViewProps) 
         </div>
 
         {/* Profile Content Body */}
-        <div id="profile-content-body" className="p-6 space-y-6">
+        <div id="profile-content-body" className="p-8 space-y-8">
           {/* Avatar frame */}
-          <div className="flex items-center gap-4 py-2 border-b border-neutral-850/40">
+          <div className="flex items-center gap-6 py-4 border-b border-white/[0.05]">
             {userProfile.photoURL ? (
               <img 
                 src={userProfile.photoURL} 
                 alt={userProfile.name} 
-                className="w-14 h-14 rounded-full border border-neutral-750" 
+                className="w-16 h-16 rounded-full border border-white/10 shadow-2xl"
                 referrerPolicy="no-referrer"
               />
             ) : (
-              <div className="w-14 h-14 rounded-full bg-neutral-800 border border-neutral-700 flex items-center justify-center text-neutral-300 font-bold text-lg select-none">
+              <div className="w-16 h-16 rounded-full bg-neutral-800 border border-white/10 flex items-center justify-center text-neutral-300 font-bold text-xl select-none">
                 {userProfile.name.charAt(0).toUpperCase()}
               </div>
             )}
             <div className="space-y-1">
-              <h3 className="text-base font-semibold text-white tracking-tight">{userProfile.name}</h3>
-              <p className="text-[10px] font-mono tracking-widest text-emerald-400 bg-emerald-500/5 px-2.5 py-0.5 rounded-full border border-emerald-500/10 inline-block uppercase">
+              <h3 className="text-xl font-medium text-white tracking-tight">{userProfile.name}</h3>
+              <p className="text-[10px] font-mono tracking-[0.2em] text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 inline-block uppercase">
                 {userProfile.accountStatus}
               </p>
             </div>
           </div>
 
           {/* Parameters List GRID */}
-          <div id="profile-parameters-list" className="space-y-4">
+          <div id="profile-parameters-list" className="space-y-6">
             
             {/* Display Name parameter */}
-            <div className="space-y-1">
-              <div className="flex items-center gap-1.5 text-neutral-450">
-                <User size={13} className="text-neutral-500" />
-                <span className="font-mono text-[10px] tracking-wider uppercase">User handle name</span>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-neutral-500">
+                <User size={14} />
+                <span className="font-mono text-[10px] tracking-widest uppercase">Identity Handle</span>
               </div>
-              <p className="text-xs text-white pl-5 font-mono">@{userProfile.name.toLowerCase().replace(/\s+/g, "")}</p>
+              <p className="text-sm text-neutral-200 font-mono">@{userProfile.name.toLowerCase().replace(/\s+/g, "")}</p>
             </div>
 
             {/* Email Address parameter */}
-            <div className="space-y-1">
-              <div className="flex items-center gap-1.5 text-neutral-450">
-                <Mail size={13} className="text-neutral-500" />
-                <span className="font-mono text-[10px] tracking-wide uppercase">Linked Email address</span>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-neutral-500">
+                <Mail size={14} />
+                <span className="font-mono text-[10px] tracking-widest uppercase">Secured Email</span>
               </div>
-              <p className="text-xs text-white pl-5">{userProfile.email}</p>
+              <p className="text-sm text-neutral-200">{userProfile.email}</p>
             </div>
 
             {/* Login Provider parameter */}

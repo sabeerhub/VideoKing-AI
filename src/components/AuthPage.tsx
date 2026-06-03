@@ -263,19 +263,24 @@ export default function AuthPage({ onBackToLanding, onAuthSuccess, initialMode =
         </header>
 
         {/* Central main form container */}
-        <main className="flex-1 flex flex-col justify-center items-center py-12 z-10 select-none w-full max-w-[400px] mx-auto space-y-6">
+        <main className="flex-1 flex flex-col justify-center items-center py-12 z-10 select-none w-full max-w-[400px] mx-auto space-y-8">
           
           {/* Headline title text block */}
-          <div className="text-center space-y-2 select-none">
-            <h2 className="text-2xl md:text-3xl font-sans tracking-tight text-white font-normal leading-tight">
-              {isSignUp ? "Generate an Account" : "Access Workspace"}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="text-center space-y-3 select-none"
+          >
+            <h2 className="text-3xl md:text-4xl font-sans tracking-tight text-white font-medium leading-tight">
+              {isSignUp ? "Create an account" : "Welcome back"}
             </h2>
-            <p className="text-xs text-neutral-500 leading-normal max-w-[280px] mx-auto font-sans">
+            <p className="text-sm text-neutral-500 leading-normal max-w-[320px] mx-auto font-sans">
               {isSignUp 
-                ? "Draft high-CTR cinematic formats using isolated machine intelligence." 
-                : "Return back to the ultimate automated creative console dashboard."}
+                ? "Join the next generation of creative production."
+                : "Enter your credentials to access your workspace."}
             </p>
-          </div>
+          </motion.div>
 
           {/* Form alert states feedback */}
           <AnimatePresence mode="wait">
@@ -307,9 +312,10 @@ export default function AuthPage({ onBackToLanding, onAuthSuccess, initialMode =
           </AnimatePresence>
 
           {/* Interactive tabs */}
-          <div className="w-full relative bg-neutral-900 border border-neutral-850 p-1 rounded-xl flex select-none">
-            <div 
-              className={`absolute top-1 bottom-1 w-[48%] rounded-lg bg-neutral-950 border border-neutral-800/80 transition-all duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          <div className="w-full relative bg-neutral-900/50 border border-white/[0.05] p-1 rounded-2xl flex select-none overflow-hidden">
+            <motion.div
+              layoutId="auth-tab"
+              className={`absolute top-1 bottom-1 w-[48%] rounded-xl bg-white transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 isSignUp ? "left-[50.5%]" : "left-1"
               }`}
             />
@@ -319,8 +325,8 @@ export default function AuthPage({ onBackToLanding, onAuthSuccess, initialMode =
                 setErrorMessage("");
                 setInfoMessage("");
               }}
-              className={`relative z-10 flex-1 py-2 text-center text-xs font-semibold cursor-pointer transition-colors duration-200 ${
-                !isSignUp ? "text-white animate-pulse" : "text-neutral-500 hover:text-neutral-300"
+              className={`relative z-10 flex-1 py-2.5 text-center text-sm font-medium cursor-pointer transition-colors duration-300 ${
+                !isSignUp ? "text-black" : "text-neutral-500 hover:text-neutral-300"
               }`}
             >
               Sign In
@@ -331,8 +337,8 @@ export default function AuthPage({ onBackToLanding, onAuthSuccess, initialMode =
                 setErrorMessage("");
                 setInfoMessage("");
               }}
-              className={`relative z-10 flex-1 py-2 text-center text-xs font-semibold cursor-pointer transition-colors duration-200 ${
-                isSignUp ? "text-white animate-pulse" : "text-neutral-500 hover:text-neutral-300"
+              className={`relative z-10 flex-1 py-2.5 text-center text-sm font-medium cursor-pointer transition-colors duration-300 ${
+                isSignUp ? "text-black" : "text-neutral-500 hover:text-neutral-300"
               }`}
             >
               Sign Up
@@ -392,12 +398,12 @@ export default function AuthPage({ onBackToLanding, onAuthSuccess, initialMode =
             )}
 
             {/* Email Address */}
-            <div className="space-y-1">
-              <label className="block text-[10px] font-mono tracking-wider text-neutral-500 uppercase font-mono">
+            <div className="space-y-2">
+              <label className="block text-xs font-medium text-neutral-400">
                 Email Address
               </label>
-              <div className="relative">
-                <Mail size={13} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-600" />
+              <div className="relative group">
+                <Mail size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-600 group-focus-within:text-white transition-colors" />
                 <input
                   type="email"
                   required
@@ -405,15 +411,15 @@ export default function AuthPage({ onBackToLanding, onAuthSuccess, initialMode =
                   disabled={isLoading}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="name@company.com"
-                  className="w-full text-xs h-10 pl-10 pr-4 rounded-xl bg-neutral-900 border border-neutral-850/60 text-white placeholder:text-neutral-700 outline-none focus:border-neutral-700 transition-all font-sans"
+                  className="w-full text-sm h-12 pl-12 pr-4 rounded-2xl bg-neutral-900/50 border border-white/[0.05] text-white placeholder:text-neutral-600 outline-none focus:border-white/20 focus:bg-neutral-900 transition-all font-sans"
                 />
               </div>
             </div>
 
             {/* Password */}
-            <div className="space-y-1">
+            <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <label className="block text-[10px] font-mono tracking-wider text-neutral-500 uppercase">
+                <label className="block text-xs font-medium text-neutral-400">
                   Password
                 </label>
                 {!isSignUp && (
@@ -423,14 +429,14 @@ export default function AuthPage({ onBackToLanding, onAuthSuccess, initialMode =
                       setShowForgotPassword(true);
                       setResetEmail(email);
                     }}
-                    className="text-[10px] font-mono text-neutral-500 hover:text-white underline cursor-pointer"
+                    className="text-xs font-medium text-neutral-500 hover:text-white transition-colors cursor-pointer"
                   >
                     Forgot Password?
                   </button>
                 )}
               </div>
-              <div className="relative">
-                <Lock size={13} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-600" />
+              <div className="relative group">
+                <Lock size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-600 group-focus-within:text-white transition-colors" />
                 <input
                   type="password"
                   required
@@ -438,7 +444,7 @@ export default function AuthPage({ onBackToLanding, onAuthSuccess, initialMode =
                   disabled={isLoading}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full text-xs h-10 pl-10 pr-4 rounded-xl bg-neutral-900 border border-neutral-850/60 text-white placeholder:text-neutral-700 outline-none focus:border-neutral-700 transition-all font-sans"
+                  className="w-full text-sm h-12 pl-12 pr-4 rounded-2xl bg-neutral-900/50 border border-white/[0.05] text-white placeholder:text-neutral-600 outline-none focus:border-white/20 focus:bg-neutral-900 transition-all font-sans"
                 />
               </div>
             </div>
@@ -532,14 +538,14 @@ export default function AuthPage({ onBackToLanding, onAuthSuccess, initialMode =
             <button
               type="submit"
               disabled={isLoading || (isSignUp && !agreedToTerms)}
-              className="w-full h-11 bg-white text-black hover:bg-neutral-100 disabled:bg-neutral-900 disabled:text-neutral-600 disabled:opacity-45 transition-all rounded-xl font-semibold text-xs tracking-tight flex items-center justify-center gap-2 cursor-pointer shadow active:scale-[0.99] mt-3"
+              className="w-full h-12 bg-white text-black hover:bg-neutral-100 disabled:bg-neutral-900 disabled:text-neutral-600 disabled:opacity-45 transition-all rounded-2xl font-semibold text-sm tracking-tight flex items-center justify-center gap-2 cursor-pointer shadow-xl shadow-white/5 active:scale-[0.98] mt-4"
             >
               {isLoading ? (
-                <Loader2 size={14} className="animate-spin text-black" />
+                <Loader2 size={16} className="animate-spin text-black" />
               ) : isSignUp ? (
-                <Sparkles size={13} className="shrink-0 text-black fill-black" />
+                <Sparkles size={16} className="shrink-0 text-black fill-black" />
               ) : null}
-              <span>{isSignUp ? "Generate Account" : "Access Workspace"}</span>
+              <span>{isSignUp ? "Create account" : "Access Workspace"}</span>
             </button>
 
           </form>

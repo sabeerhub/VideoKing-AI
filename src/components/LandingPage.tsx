@@ -130,29 +130,41 @@ export default function LandingPage({
       </nav>
 
       {/* --- HERO SECTION --- */}
-      <section className="relative pt-44 pb-20 md:pt-56 md:pb-32 max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-center text-center z-10">
+      <section className="relative pt-44 pb-20 md:pt-64 md:pb-40 max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-center text-center z-10">
         
-        {/* Large Cinematic Typography */}
-        <h1 className="text-5xl sm:text-7xl md:text-[105px] font-sans font-normal tracking-tight text-white leading-[0.9] select-none text-balance max-w-5xl">
-          VideoKing-AI
-        </h1>
+        <motion.div
+          initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
+          animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="space-y-8"
+        >
+          {/* Large Cinematic Typography */}
+          <h1 className="text-6xl sm:text-8xl md:text-[120px] font-sans font-medium tracking-tighter text-white leading-[0.85] select-none text-balance max-w-5xl">
+            The New Standard of Video Creation
+          </h1>
 
-        {/* CTA Button Group */}
-        <div className="flex items-center justify-center gap-4 mt-14 w-full sm:w-auto">
-          <button
-            onClick={onGetStarted}
-            className="w-full sm:w-auto px-7 py-3 rounded-xl bg-white text-black text-xs font-semibold tracking-tight hover:bg-neutral-100 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xl shadow-white/5"
-          >
-            <span>Get Started</span>
-            <ArrowRight size={13} className="stroke-[2.5]" />
-          </button>
-          <button
-            onClick={onLoginClick}
-            className="w-full sm:w-auto px-7 py-3 rounded-xl bg-neutral-900 border border-neutral-800 text-neutral-300 text-xs font-semibold tracking-tight hover:bg-neutral-800 transition-all flex items-center justify-center cursor-pointer"
-          >
-            Sign In
-          </button>
-        </div>
+          <p className="text-neutral-400 text-lg md:text-xl max-w-2xl mx-auto font-sans tracking-tight">
+            A world-class creative operating system powered by advanced AI.
+            Built for precision, designed for scale.
+          </p>
+
+          {/* CTA Button Group */}
+          <div className="flex items-center justify-center gap-4 mt-12 w-full sm:w-auto">
+            <button
+              onClick={onGetStarted}
+              className="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-black text-sm font-semibold tracking-tight hover:bg-neutral-100 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-2xl shadow-white/10 active:scale-95"
+            >
+              <span>Get Started</span>
+              <ArrowRight size={16} className="stroke-[2.5]" />
+            </button>
+            <button
+              onClick={onLoginClick}
+              className="w-full sm:w-auto px-8 py-4 rounded-full bg-neutral-900/50 backdrop-blur-xl border border-neutral-800 text-neutral-300 text-sm font-semibold tracking-tight hover:bg-neutral-800 transition-all flex items-center justify-center cursor-pointer active:scale-95"
+            >
+              Sign In
+            </button>
+          </div>
+        </motion.div>
 
       </section>
 
@@ -197,8 +209,14 @@ export default function LandingPage({
         </div>
 
         {/* Master Glass Panel Showcase */}
-        <div className="bg-neutral-950/40 border border-neutral-900 rounded-2xl md:rounded-3xl overflow-hidden shadow-3xl backdrop-blur-xl relative aspect-[16/10] w-full max-w-5xl mx-auto p-4 md:p-8 flex flex-col justify-between">
-          <div className="absolute inset-0 bg-gradient-to-tr from-neutral-900/10 via-transparent to-neutral-900/10 pointer-events-none" />
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="bg-neutral-950/40 border border-neutral-900/50 rounded-2xl md:rounded-[40px] overflow-hidden shadow-3xl backdrop-blur-xl relative aspect-[16/10] w-full max-w-6xl mx-auto p-4 md:p-12 flex flex-col justify-between"
+        >
+          <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.02] via-transparent to-white/[0.02] pointer-events-none" />
           
           <AnimatePresence mode="wait">
             {activeWorkflowTab === "video" && (
@@ -427,102 +445,138 @@ export default function LandingPage({
             )}
           </AnimatePresence>
 
-        </div>
+        </motion.div>
 
       </section>
 
       {/* --- PRODUCT FEATURES SECTION --- */}
-      <section id="features-section" className="py-24 md:py-36 border-t border-neutral-950 bg-neutral-950/10 relative z-10">
+      <section id="features-section" className="py-32 md:py-48 border-t border-neutral-900/30 bg-black relative z-10">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
           {/* Grid Layout of Features and whitespace */}
-          <div className="max-w-xl text-left space-y-3 mb-20">
-            <span className="text-[10px] font-mono tracking-widest text-neutral-500 uppercase block">CORE TECHNOLOGY CAPABILITIES</span>
-            <h2 className="text-3xl md:text-5xl font-sans font-normal tracking-tight text-white select-none">
-              Primacy in Creative Automation
+          <div className="max-w-2xl text-left space-y-6 mb-24">
+            <span className="text-xs font-mono tracking-[0.2em] text-neutral-500 uppercase block">Core Capabilities</span>
+            <h2 className="text-4xl md:text-6xl font-sans font-medium tracking-tighter text-white select-none leading-tight">
+              Crafting the future of <br/> visual intelligence.
             </h2>
           </div>
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             {/* AI Video Generation */}
-            <div className="group bg-neutral-950 border border-neutral-900/80 p-8 rounded-2xl space-y-4 hover:border-neutral-850 hover:bg-neutral-900/5 transition-all duration-300 text-left">
-              <div className="w-9 h-9 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-neutral-400 group-hover:text-white transition-colors">
-                <Video size={16} />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="group bg-neutral-900/20 border border-white/[0.05] p-10 rounded-[32px] space-y-6 hover:border-white/[0.1] hover:bg-neutral-900/40 transition-all duration-500 text-left"
+            >
+              <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 group-hover:text-white transition-colors duration-500">
+                <Video size={20} />
               </div>
-              <div className="space-y-1.5">
-                <h3 className="text-base font-medium text-white tracking-tight">AI Video Generation</h3>
-                <p className="text-xs text-neutral-450 leading-relaxed font-sans">
+              <div className="space-y-3">
+                <h3 className="text-lg font-medium text-white tracking-tight">AI Video Generation</h3>
+                <p className="text-sm text-neutral-500 leading-relaxed font-sans group-hover:text-neutral-400 transition-colors">
                   Generate comprehensive multi-scene short video storyboards, fluid kamera dolly directives, and captions customized for virality.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* AI Image Generation */}
-            <div className="group bg-neutral-950 border border-neutral-900/80 p-8 rounded-2xl space-y-4 hover:border-neutral-850 hover:bg-neutral-900/5 transition-all duration-300 text-left">
-              <div className="w-9 h-9 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-neutral-400 group-hover:text-white transition-colors">
-                <Sparkles size={16} />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="group bg-neutral-900/20 border border-white/[0.05] p-10 rounded-[32px] space-y-6 hover:border-white/[0.1] hover:bg-neutral-900/40 transition-all duration-500 text-left"
+            >
+              <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 group-hover:text-white transition-colors duration-500">
+                <Sparkles size={20} />
               </div>
-              <div className="space-y-1.5">
-                <h3 className="text-base font-medium text-white tracking-tight">AI Image Generation</h3>
-                <p className="text-xs text-neutral-450 leading-relaxed font-sans">
+              <div className="space-y-3">
+                <h3 className="text-lg font-medium text-white tracking-tight">AI Image Generation</h3>
+                <p className="text-sm text-neutral-500 leading-relaxed font-sans group-hover:text-neutral-400 transition-colors">
                   Incorporate fast keyframe drafting cores, atmospheric light configurations, virtual lenses, and exact hex swatch models instantly.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Smart File Understanding */}
-            <div className="group bg-neutral-950 border border-neutral-900/80 p-8 rounded-2xl space-y-4 hover:border-neutral-850 hover:bg-neutral-900/5 transition-all duration-300 text-left">
-              <div className="w-9 h-9 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-neutral-400 group-hover:text-white transition-colors">
-                <UploadCloud size={16} />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="group bg-neutral-900/20 border border-white/[0.05] p-10 rounded-[32px] space-y-6 hover:border-white/[0.1] hover:bg-neutral-900/40 transition-all duration-500 text-left"
+            >
+              <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 group-hover:text-white transition-colors duration-500">
+                <UploadCloud size={20} />
               </div>
-              <div className="space-y-1.5">
-                <h3 className="text-base font-medium text-white tracking-tight">Smart File Understanding</h3>
-                <p className="text-xs text-neutral-450 leading-relaxed font-sans">
+              <div className="space-y-3">
+                <h3 className="text-lg font-medium text-white tracking-tight">Smart File Understanding</h3>
+                <p className="text-sm text-neutral-500 leading-relaxed font-sans group-hover:text-neutral-400 transition-colors">
                   Direct raw files, guidelines datasets, branding outlines, or mock templates straight to the rendering model pipelines seamlessly.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Prompt-to-Content Creation */}
-            <div className="group bg-neutral-950 border border-neutral-900/80 p-8 rounded-2xl space-y-4 hover:border-neutral-850 hover:bg-neutral-900/5 transition-all duration-300 text-left">
-              <div className="w-9 h-9 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-neutral-400 group-hover:text-white transition-colors">
-                <Sliders size={16} />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="group bg-neutral-900/20 border border-white/[0.05] p-10 rounded-[32px] space-y-6 hover:border-white/[0.1] hover:bg-neutral-900/40 transition-all duration-500 text-left"
+            >
+              <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 group-hover:text-white transition-colors duration-500">
+                <Sliders size={20} />
               </div>
-              <div className="space-y-1.5">
-                <h3 className="text-base font-medium text-white tracking-tight">Prompt-to-Content Creation</h3>
-                <p className="text-xs text-neutral-450 leading-relaxed font-sans">
+              <div className="space-y-3">
+                <h3 className="text-lg font-medium text-white tracking-tight">Prompt-to-Content Creation</h3>
+                <p className="text-sm text-neutral-500 leading-relaxed font-sans group-hover:text-neutral-400 transition-colors">
                   Transform raw conversational instructions into refined technical schemas containing strategic narration drafts, voice setups, and tags.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* High-Speed Rendering */}
-            <div className="group bg-neutral-950 border border-neutral-900/80 p-8 rounded-2xl space-y-4 hover:border-neutral-850 hover:bg-neutral-900/5 transition-all duration-300 text-left">
-              <div className="w-9 h-9 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-neutral-400 group-hover:text-white transition-colors">
-                <Cpu size={16} />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="group bg-neutral-900/20 border border-white/[0.05] p-10 rounded-[32px] space-y-6 hover:border-white/[0.1] hover:bg-neutral-900/40 transition-all duration-500 text-left"
+            >
+              <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 group-hover:text-white transition-colors duration-500">
+                <Cpu size={20} />
               </div>
-              <div className="space-y-1.5">
-                <h3 className="text-base font-medium text-white tracking-tight">High-Speed Rendering</h3>
-                <p className="text-xs text-neutral-450 leading-relaxed font-sans">
+              <div className="space-y-3">
+                <h3 className="text-lg font-medium text-white tracking-tight">High-Speed Rendering</h3>
+                <p className="text-sm text-neutral-500 leading-relaxed font-sans group-hover:text-neutral-400 transition-colors">
                   Unleash continuous distributed processing limits across optimized high-memory cloud container grids without latency.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Secure Authentication */}
-            <div className="group bg-neutral-950 border border-neutral-900/80 p-8 rounded-2xl space-y-4 hover:border-neutral-850 hover:bg-neutral-900/5 transition-all duration-300 text-left">
-              <div className="w-9 h-9 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-neutral-400 group-hover:text-white transition-colors">
-                <Shield size={16} />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="group bg-neutral-900/20 border border-white/[0.05] p-10 rounded-[32px] space-y-6 hover:border-white/[0.1] hover:bg-neutral-900/40 transition-all duration-500 text-left"
+            >
+              <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 group-hover:text-white transition-colors duration-500">
+                <Shield size={20} />
               </div>
-              <div className="space-y-1.5">
-                <h3 className="text-base font-medium text-white tracking-tight">Secure Authentication</h3>
-                <p className="text-xs text-neutral-450 leading-relaxed font-sans">
+              <div className="space-y-3">
+                <h3 className="text-lg font-medium text-white tracking-tight">Secure Authentication</h3>
+                <p className="text-sm text-neutral-500 leading-relaxed font-sans group-hover:text-neutral-400 transition-colors">
                   Operate inside safe authentication parameters using Google Sign-In, credential hashing, and secure legal consent checkboxes.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
           </div>
 

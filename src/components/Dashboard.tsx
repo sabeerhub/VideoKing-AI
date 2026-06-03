@@ -357,33 +357,33 @@ export default function Dashboard({ userProfile, onLogout }: DashboardProps) {
       {/* ----------------------------------------------------- */}
       <nav 
         id="dashboard-header" 
-        className="h-14 border-b border-neutral-900 bg-neutral-950 px-6 flex items-center justify-between shrink-0 select-none z-10"
+        className="h-16 border-b border-white/[0.05] bg-black/50 backdrop-blur-xl px-8 flex items-center justify-between shrink-0 select-none z-20"
       >
         {/* Left Brand */}
-        <div className="flex items-center gap-3 select-none">
-          <div className="w-6.5 h-6.5 bg-white text-black font-semibold rounded-md flex items-center justify-center font-mono text-xs">
+        <div className="flex items-center gap-4 select-none">
+          <div className="w-8 h-8 bg-white text-black font-bold rounded-xl flex items-center justify-center font-mono text-sm shadow-xl shadow-white/5">
             VK
           </div>
-          <span className="font-sans font-medium text-white text-sm select-none">
-            VideoKing-AI
+          <span className="font-sans font-semibold text-white text-base tracking-tight select-none">
+            VideoKing
           </span>
         </div>
 
         {/* Center Nav tabs */}
-        <div className="flex items-center p-1 rounded-xl bg-neutral-900/60 border border-neutral-900/80">
+        <div className="flex items-center p-1 rounded-2xl bg-neutral-900/40 border border-white/[0.05]">
           {[
-            { id: "generate", label: "Generate" },
-            { id: "images", label: "Images" },
-            { id: "profile", label: "Profile" },
-            { id: "settings", label: "Settings" }
+            { id: "generate", label: "Studio" },
+            { id: "images", label: "Assets" },
+            { id: "profile", label: "Identity" },
+            { id: "settings", label: "Config" }
           ].map(tab => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as ActiveTab)}
-              className={`px-4.5 py-1.5 rounded-lg text-xs font-semibold tracking-tight transition-all relative cursor-pointer ${
+              className={`px-6 py-2 rounded-xl text-sm font-medium tracking-tight transition-all relative cursor-pointer ${
                 activeTab === tab.id 
-                  ? "bg-white text-black font-semibold shadow-sm" 
-                  : "text-neutral-450 hover:text-white"
+                  ? "bg-white text-black shadow-2xl"
+                  : "text-neutral-500 hover:text-neutral-300"
               }`}
             >
               <span>{tab.label}</span>
@@ -471,31 +471,31 @@ export default function Dashboard({ userProfile, onLogout }: DashboardProps) {
                   )}
 
                   {/* Centered Premium Prompt compose card */}
-                  <div className="bg-neutral-900/35 border border-neutral-850 p-2 rounded-2xl shadow-2xl backdrop-blur-xl space-y-2">
+                  <div className="bg-neutral-900/30 border border-white/[0.05] p-3 rounded-[32px] shadow-3xl backdrop-blur-2xl space-y-3 ring-1 ring-white/[0.05]">
                     
                     {/* Attachment mini preview */}
                     <AnimatePresence>
                       {attachedFile && (
                         <motion.div
-                          initial={{ opacity: 0, scale: 0.95 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          exit={{ opacity: 0, scale: 0.95 }}
-                          className="p-2 rounded-lg bg-neutral-950 border border-neutral-900 flex items-center justify-between gap-3 text-left font-mono"
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 10 }}
+                          className="p-3 rounded-2xl bg-black/40 border border-white/[0.05] flex items-center justify-between gap-4 text-left"
                         >
-                          <div className="flex items-center gap-2.5 min-w-0">
-                            <div className="p-1 px-1.5 rounded bg-neutral-900 border border-neutral-800 text-neutral-400">
-                              {attachedFile.type.startsWith("image/") ? <ImageIcon size={12} /> : <FileText size={12} />}
+                          <div className="flex items-center gap-3 min-w-0">
+                            <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400">
+                              {attachedFile.type.startsWith("image/") ? <ImageIcon size={16} /> : <FileText size={16} />}
                             </div>
-                            <div className="min-w-0 text-[10px]">
-                              <p className="text-stone-200 font-semibold truncate max-w-sm">{attachedFile.name}</p>
-                              <p className="text-neutral-500 uppercase">{formatSize(attachedFile.size)} // {attachedFile.type}</p>
+                            <div className="min-w-0">
+                              <p className="text-sm text-white font-medium truncate max-w-sm">{attachedFile.name}</p>
+                              <p className="text-[10px] text-neutral-500 uppercase font-mono tracking-tight">{formatSize(attachedFile.size)} • {attachedFile.type.split('/')[1]}</p>
                             </div>
                           </div>
                           <button
                             onClick={handleRemoveAttachment}
-                            className="p-1 rounded text-neutral-500 hover:text-white hover:bg-neutral-900 cursor-pointer"
+                            className="p-2 rounded-full text-neutral-500 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
                           >
-                            <X size={12} />
+                            <X size={16} />
                           </button>
                         </motion.div>
                       )}
@@ -511,12 +511,12 @@ export default function Dashboard({ userProfile, onLogout }: DashboardProps) {
                           handleSendMessage();
                         }
                       }}
-                      placeholder="Describe the video you want to create..."
-                      className="w-full bg-transparent outline-none border-none text-xs leading-relaxed text-white placeholder:text-neutral-500 p-3 h-20 resize-none font-sans"
+                      placeholder="Type a prompt to generate or refine your creative vision..."
+                      className="w-full bg-transparent outline-none border-none text-base leading-relaxed text-white placeholder:text-neutral-600 p-4 h-24 resize-none font-sans"
                     />
 
                     {/* Inputs parameters and triggers panel */}
-                    <div className="border-t border-neutral-850/60 pt-2 px-1 pb-1 flex flex-wrap items-center justify-between gap-3">
+                    <div className="border-t border-white/[0.05] pt-3 px-1 pb-1 flex flex-wrap items-center justify-between gap-4">
                       
                       {/* Left actions: Attach file and segmented toggler */}
                       <div className="flex items-center gap-3">
@@ -576,10 +576,10 @@ export default function Dashboard({ userProfile, onLogout }: DashboardProps) {
                         <button
                           onClick={() => handleSendMessage()}
                           disabled={!userInput.trim() || isGenerating}
-                          className="p-2 px-4 rounded-xl bg-white text-black font-semibold hover:bg-neutral-100 disabled:opacity-40 transition-all flex items-center gap-1.5 cursor-pointer text-xs shadow"
+                          className="px-6 py-2.5 rounded-2xl bg-white text-black font-bold hover:bg-neutral-100 disabled:opacity-30 transition-all flex items-center gap-2 cursor-pointer text-sm shadow-xl shadow-white/5 active:scale-95"
                         >
                           <span>Generate</span>
-                          <Send size={11} className="text-black" />
+                          <Send size={14} className="text-black" />
                         </button>
                       </div>
 
@@ -685,15 +685,19 @@ export default function Dashboard({ userProfile, onLogout }: DashboardProps) {
               </div>
 
               {/* Right Column: Visual Output Monitor (Apple Pro layout) */}
-              <div id="designer-preview-rail shadow-sm" className="w-full md:w-[480px] bg-neutral-950 p-4 md:p-6 flex flex-col justify-between overflow-y-auto shrink-0 select-none text-left border-t md:border-t-0 border-neutral-900">
+              <div id="designer-preview-rail shadow-sm" className="w-full md:w-[520px] bg-neutral-950 p-6 md:p-8 flex flex-col justify-between overflow-y-auto shrink-0 select-none text-left border-l border-white/[0.05]">
                 
                 {/* Visual Monitor Header */}
-                <div className="flex items-center justify-between border-b border-neutral-900 pb-3 h-10 select-none shrink-0 font-mono text-[10px] tracking-widest text-neutral-500">
-                  <span className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-neutral-500 animate-pulse" />
-                    <span>PRODUCTION MONITOR</span>
+                <div className="flex items-center justify-between border-b border-white/[0.05] pb-4 h-12 select-none shrink-0">
+                  <span className="flex items-center gap-2.5 font-mono text-[10px] tracking-[0.2em] text-neutral-500 uppercase">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                    <span>Production Monitor</span>
                   </span>
-                  <span>PREVIEW AREA</span>
+                  <div className="flex gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/20 border border-red-500/40" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-amber-500/20 border border-amber-500/40" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/20 border border-emerald-500/40" />
+                  </div>
                 </div>
 
                 {/* Simulated Panel content */}
@@ -715,19 +719,19 @@ export default function Dashboard({ userProfile, onLogout }: DashboardProps) {
                     <div className="space-y-6 animate-fadeIn text-left">
                       
                       {/* Viewport phone mockup */}
-                      <div className="relative aspect-[9/16] max-w-[210px] mx-auto bg-black rounded-2xl border border-neutral-800 shadow-3xl overflow-hidden">
+                      <div className="relative aspect-[9/16] max-w-[240px] mx-auto bg-black rounded-[40px] border-[8px] border-neutral-900 shadow-[0_0_0_1px_rgba(255,255,255,0.05),0_30px_60px_-12px_rgba(0,0,0,0.8)] overflow-hidden">
                         
-                        <div className="absolute inset-0 bg-gradient-to-b from-neutral-900 via-neutral-950 to-black p-4 flex flex-col justify-between relative">
+                        <div className="absolute inset-0 bg-gradient-to-b from-neutral-800 via-neutral-950 to-black p-5 flex flex-col justify-between relative">
                           
                           {/* Scene bar indicators */}
-                          <div className="relative z-10 flex items-center justify-between font-mono text-[8px] text-neutral-500 bg-black/60 p-1.5 rounded backdrop-blur">
+                          <div className="relative z-10 flex items-center justify-between font-mono text-[9px] text-neutral-400 bg-black/40 p-2 rounded-xl backdrop-blur-md border border-white/[0.05]">
                             <span>Scene {activeSceneIndex + 1}/{activeVideoOutput.scenes.length}</span>
-                            <span className="text-emerald-400 font-semibold">CTR {activeVideoOutput.viralScore}%</span>
+                            <span className="text-emerald-400 font-bold tracking-tight">{activeVideoOutput.viralScore}% CTR</span>
                           </div>
 
                           {/* Dial element */}
-                          <div className="relative flex-grow flex flex-col items-center justify-center gap-2">
-                            <div className="w-12 h-12 rounded-full border border-neutral-800 bg-neutral-900/60 backdrop-blur flex items-center justify-center relative">
+                          <div className="relative flex-grow flex flex-col items-center justify-center gap-3">
+                            <div className="w-14 h-14 rounded-full border border-white/10 bg-black/40 backdrop-blur-xl flex items-center justify-center relative shadow-2xl">
                               {isPlaying ? (
                                 <div className="flex items-end gap-0.5 h-3">
                                   <motion.span animate={{ height: [4, 12, 4] }} transition={{ repeat: Infinity, duration: 0.6 }} className="w-[1px] bg-emerald-400" />

@@ -81,14 +81,14 @@ export default function App() {
     return (
       <div 
         id="app-loader-screen" 
-        className="min-h-screen bg-neutral-950 flex flex-col items-center justify-center text-neutral-100 font-sans p-6 select-none"
+        className="min-h-screen bg-brand-black flex flex-col items-center justify-center text-neutral-100 font-sans p-6 select-none"
       >
         <div className="space-y-4 text-center">
-          <div id="loader-icon-box" className="w-12 h-12 rounded-2xl bg-neutral-900 border border-neutral-850 flex items-center justify-center mx-auto text-white shadow-xl relative overflow-hidden">
+          <div id="loader-icon-box" className="w-12 h-12 rounded-2xl bg-brand-dark-gray border border-brand-border flex items-center justify-center mx-auto text-white shadow-xl relative overflow-hidden">
             <Flame className="text-white animate-pulse" size={20} />
           </div>
-          <p className="text-xs font-mono tracking-widest text-neutral-500 uppercase">VideoKing Auth Security Checkpoint...</p>
-          <div className="w-24 h-[2px] bg-neutral-900 mx-auto rounded-full overflow-hidden">
+          <p className="text-xs font-mono tracking-widest text-neutral-500 uppercase">VideoKing-AI Security Checkpoint...</p>
+          <div className="w-24 h-[2px] bg-brand-gray mx-auto rounded-full overflow-hidden">
             <motion.div 
               animate={{ left: ["-100%", "100%"] }}
               transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
@@ -101,7 +101,7 @@ export default function App() {
   }
 
   return (
-    <div id="app-root-container" className="bg-neutral-950 min-h-screen">
+    <div id="app-root-container" className="bg-brand-black min-h-screen">
       <AnimatePresence mode="wait">
         {screen === "landing" && (
           <motion.div

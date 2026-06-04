@@ -5,6 +5,7 @@
   --color-brand-near-black: #050505;
   --color-brand-dark-gray: #0A0A0A;
   --color-brand-gray: #111111;
+  --color-brand-accent: #FFFFFF;
   --color-brand-border: rgba(255, 255, 255, 0.08);
   --color-brand-border-hover: rgba(255, 255, 255, 0.15);
 
@@ -16,7 +17,7 @@
 
 @layer base {
   body {
-    @apply bg-black text-neutral-200 antialiased selection:bg-neutral-800 selection:text-white font-sans;
+    @apply bg-brand-black text-neutral-200 antialiased selection:bg-neutral-800 selection:text-white font-sans;
   }
 }
 

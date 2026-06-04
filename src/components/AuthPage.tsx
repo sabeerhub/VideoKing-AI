@@ -161,17 +161,17 @@ export default function AuthPage({ onBackToLanding, onAuthSuccess, initialMode =
   return (
     <div 
       id="split-auth-root shadow-sm"
-      className="min-h-screen bg-black text-neutral-200 flex flex-col lg:grid lg:grid-cols-12 overflow-hidden select-none font-sans"
+      className="min-h-screen bg-brand-black text-neutral-200 flex flex-col lg:grid lg:grid-cols-12 overflow-hidden select-none font-sans"
     >
       
       {/* ----------------------------------------------------------------- */}
       {/* LEFT SIDE: DESIGNED BY STRIPE/APPLE-LEVEL PRODUCT SHOWCASE        */}
       {/* ----------------------------------------------------------------- */}
-      <div className="hidden lg:flex lg:col-span-5 bg-neutral-950 border-r border-neutral-900 flex-col justify-between p-12 relative overflow-hidden text-left">
+      <div className="hidden lg:flex lg:col-span-5 bg-brand-near-black border-r border-brand-border flex-col justify-between p-12 relative overflow-hidden text-left">
         {/* Background Gradients */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#090909_1px,transparent_1px),linear-gradient(to_bottom,#090909_1px,transparent_1px)] bg-[size:3rem_3rem] pointer-events-none opacity-30" />
-        <div className="absolute -top-24 -left-20 w-[500px] h-[500px] bg-neutral-900/40 rounded-full blur-[130px] opacity-35" />
-        <div className="absolute -bottom-24 -right-20 w-[400px] h-[400px] bg-neutral-900/35 rounded-full blur-[120px] opacity-30" />
+        <div className="absolute -top-24 -left-20 w-[500px] h-[500px] bg-brand-dark-gray/40 rounded-full blur-[130px] opacity-35" />
+        <div className="absolute -bottom-24 -right-20 w-[400px] h-[400px] bg-brand-dark-gray/35 rounded-full blur-[120px] opacity-30" />
 
         {/* Top brand */}
         <div className="flex items-center gap-3 relative z-10 select-none">

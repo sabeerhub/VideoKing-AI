@@ -349,7 +349,7 @@ export default function Dashboard({ userProfile, onLogout }: DashboardProps) {
   return (
     <div 
       id="studio-layout shadow" 
-      className="h-screen bg-black text-neutral-100 flex flex-col overflow-hidden font-sans select-none"
+      className="h-screen bg-brand-black text-neutral-100 flex flex-col overflow-hidden font-sans select-none"
     >
       
       {/* ----------------------------------------------------- */}
@@ -357,7 +357,7 @@ export default function Dashboard({ userProfile, onLogout }: DashboardProps) {
       {/* ----------------------------------------------------- */}
       <nav 
         id="dashboard-header" 
-        className="h-16 border-b border-white/[0.05] bg-black/50 backdrop-blur-xl px-8 flex items-center justify-between shrink-0 select-none z-20"
+        className="h-16 border-b border-brand-border bg-brand-black/50 backdrop-blur-xl px-8 flex items-center justify-between shrink-0 select-none z-20"
       >
         {/* Left Brand */}
         <div className="flex items-center gap-4 select-none">
@@ -365,7 +365,7 @@ export default function Dashboard({ userProfile, onLogout }: DashboardProps) {
             VK
           </div>
           <span className="font-sans font-semibold text-white text-base tracking-tight select-none">
-            VideoKing
+            VideoKing-AI
           </span>
         </div>
 
@@ -427,8 +427,8 @@ export default function Dashboard({ userProfile, onLogout }: DashboardProps) {
             >
               <div className="text-center space-y-3 pointer-events-none">
                 <Upload size={24} className="mx-auto text-white animate-bounce" />
-                <p className="text-sm font-semibold text-white">Releasing contextual attachment guidelines</p>
-                <p className="text-xs text-neutral-500 font-mono uppercase tracking-widest">IMAGERY, TEXT SETUPS, OR PDFs ALLOWED UP TO 10MB</p>
+                <p className="text-sm font-semibold text-white">Drop to Upload</p>
+                <p className="text-xs text-neutral-500 font-mono uppercase tracking-widest">IMAGERY, TEXTS, OR PDFs UP TO 10MB</p>
               </div>
             </motion.div>
           )}
@@ -449,10 +449,10 @@ export default function Dashboard({ userProfile, onLogout }: DashboardProps) {
             >
               
               {/* Left Column: Command & Input Workspace */}
-              <div className="flex-1 flex flex-col justify-between overflow-y-auto p-4 md:p-8 border-r border-neutral-900 bg-black relative">
+              <div className="flex-1 flex flex-col justify-between overflow-y-auto p-4 md:p-8 border-r border-brand-border bg-brand-black relative">
                 
                 {/* Visual Ambient Node */}
-                <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[350px] h-[350px] bg-neutral-900 rounded-full blur-[120px] opacity-25 pointer-events-none" />
+                <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[350px] h-[350px] bg-brand-dark-gray rounded-full blur-[120px] opacity-25 pointer-events-none" />
 
                 {/* Main Centered prompt block */}
                 <div className="w-full max-w-2xl mx-auto flex-1 flex flex-col justify-center space-y-8 py-8 relative z-10 text-left">
@@ -463,9 +463,9 @@ export default function Dashboard({ userProfile, onLogout }: DashboardProps) {
                       <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center mx-auto text-white">
                         <Sparkles size={16} className="text-neutral-200" />
                       </div>
-                      <h3 className="text-lg font-medium text-white">Draft beautiful studio blueprints</h3>
+                      <h3 className="text-lg font-medium text-white">Studio Blueprint</h3>
                       <p className="text-xs text-neutral-550 max-w-xs mx-auto leading-normal">
-                        Attach model briefs or drop visual specifications directly below to initialize multi-frame storyboards.
+                        Initialize multi-frame storyboards. Attach briefs or describe your vision.
                       </p>
                     </div>
                   )}
@@ -635,7 +635,7 @@ export default function Dashboard({ userProfile, onLogout }: DashboardProps) {
                             }`}
                           >
                             <div className="flex items-center gap-1.5 font-mono text-[9px] text-neutral-500 mb-1.5">
-                              <span>{m.sender === "user" ? "@me" : "VideoKing ID"}</span>
+                              <span>{m.sender === "user" ? "@me" : "VideoKing-AI"}</span>
                               <span>•</span>
                               <span>{m.timestamp}</span>
                             </div>
@@ -685,10 +685,10 @@ export default function Dashboard({ userProfile, onLogout }: DashboardProps) {
               </div>
 
               {/* Right Column: Visual Output Monitor (Apple Pro layout) */}
-              <div id="designer-preview-rail shadow-sm" className="w-full md:w-[520px] bg-neutral-950 p-6 md:p-8 flex flex-col justify-between overflow-y-auto shrink-0 select-none text-left border-l border-white/[0.05]">
+              <div id="designer-preview-rail shadow-sm" className="w-full md:w-[520px] bg-brand-near-black p-6 md:p-8 flex flex-col justify-between overflow-y-auto shrink-0 select-none text-left border-l border-brand-border">
                 
                 {/* Visual Monitor Header */}
-                <div className="flex items-center justify-between border-b border-white/[0.05] pb-4 h-12 select-none shrink-0">
+                <div className="flex items-center justify-between border-b border-brand-border pb-4 h-12 select-none shrink-0">
                   <span className="flex items-center gap-2.5 font-mono text-[10px] tracking-[0.2em] text-neutral-500 uppercase">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
                     <span>Production Monitor</span>
@@ -908,10 +908,10 @@ export default function Dashboard({ userProfile, onLogout }: DashboardProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="flex-1 overflow-y-auto p-6 md:p-12 text-left bg-black relative"
+              className="flex-1 overflow-y-auto p-6 md:p-12 text-left bg-brand-black relative"
             >
               
-              <div className="absolute top-10 left-10 w-[400px] h-[400px] bg-neutral-900 rounded-full blur-[130px] opacity-25 pointer-events-none" />
+              <div className="absolute top-10 left-10 w-[400px] h-[400px] bg-brand-dark-gray rounded-full blur-[130px] opacity-25 pointer-events-none" />
 
               <div className="max-w-5xl mx-auto space-y-8 relative z-10">
                 <div className="space-y-1 border-b border-neutral-900 pb-4">
@@ -1006,10 +1006,10 @@ export default function Dashboard({ userProfile, onLogout }: DashboardProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="flex-1 overflow-y-auto p-6 md:p-12 text-left bg-black relative flex flex-col justify-center"
+              className="flex-1 overflow-y-auto p-6 md:p-12 text-left bg-brand-black relative flex flex-col justify-center"
             >
               
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-neutral-900 rounded-full blur-[140px] opacity-25 pointer-events-none" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-brand-dark-gray rounded-full blur-[140px] opacity-25 pointer-events-none" />
 
               <div className="max-w-xl mx-auto space-y-8 relative z-10 w-full text-left">
                 
@@ -1092,10 +1092,10 @@ export default function Dashboard({ userProfile, onLogout }: DashboardProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="flex-1 overflow-y-auto p-6 md:p-12 text-left bg-black relative flex flex-col justify-center"
+              className="flex-1 overflow-y-auto p-6 md:p-12 text-left bg-brand-black relative flex flex-col justify-center"
             >
               
-              <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-neutral-900 rounded-full blur-[130px] opacity-25 pointer-events-none" />
+              <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-brand-dark-gray rounded-full blur-[130px] opacity-25 pointer-events-none" />
 
               <div className="max-w-xl mx-auto space-y-8 relative z-10 w-full text-left">
                 

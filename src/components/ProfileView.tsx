@@ -28,13 +28,13 @@ export default function ProfileView({ userProfile, onClose }: ProfileViewProps) 
   };
 
   return (
-    <div id="profile-overlay-backdrop" className="absolute inset-0 bg-neutral-950/80 backdrop-blur-md z-[100] flex items-center justify-center p-6 animate-fadeIn">
+    <div id="profile-overlay-backdrop" className="absolute inset-0 bg-brand-black/80 backdrop-blur-md z-[100] flex items-center justify-center p-6 animate-fadeIn">
       <div 
         id="profile-display-card"
-        className="w-full max-w-md bg-neutral-900 border border-neutral-800 rounded-2xl shadow-2xl overflow-hidden relative"
+        className="w-full max-w-md bg-brand-near-black border border-brand-border rounded-2xl shadow-2xl overflow-hidden relative"
       >
         {/* Header header info */}
-        <div id="profile-card-header" className="p-6 border-b border-neutral-850/80 flex items-center justify-between">
+        <div id="profile-card-header" className="p-6 border-b border-brand-border flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Shield size={16} className="text-neutral-450" />
             <span className="font-mono text-xs uppercase tracking-widest text-neutral-300">Creator Profile</span>
@@ -124,8 +124,8 @@ export default function ProfileView({ userProfile, onClose }: ProfileViewProps) 
         </div>
 
         {/* Drawer footer details */}
-        <div id="profile-card-footer" className="p-4 bg-neutral-950/80 border-t border-neutral-850/60 text-center font-mono text-[9px] tracking-widest text-neutral-600 uppercase select-none">
-          VK SYSTEM CREDENTIAL TOKEN // UID: {userProfile.uid.substring(0, 16)}...
+        <div id="profile-card-footer" className="p-4 bg-brand-black/80 border-t border-brand-border text-center font-mono text-[9px] tracking-widest text-neutral-600 uppercase select-none">
+          VideoKing-AI SYSTEM CREDENTIAL TOKEN // UID: {userProfile.uid.substring(0, 16)}...
         </div>
 
       </div>

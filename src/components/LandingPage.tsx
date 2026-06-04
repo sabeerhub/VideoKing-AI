@@ -83,18 +83,18 @@ export default function LandingPage({
   return (
     <div 
       id="landing-root" 
-      className="min-h-screen bg-black text-neutral-100 selection:bg-neutral-800 selection:text-white font-sans overflow-x-hidden antialiased"
+      className="min-h-screen bg-brand-black text-neutral-100 selection:bg-neutral-800 selection:text-white font-sans overflow-x-hidden antialiased"
     >
       {/* Absolute Ambient Grid & Glows - Luxury Vibe */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#111111_1px,transparent_1px),linear-gradient(to_bottom,#111111_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none opacity-40 z-0" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-neutral-900 rounded-full blur-[160px] opacity-25 pointer-events-none z-0" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-brand-dark-gray rounded-full blur-[160px] opacity-25 pointer-events-none z-0" />
 
       {/* --- PREMIUM FIXED NAVBAR --- */}
       <nav 
         id="navbar-sticky"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled 
-            ? "backdrop-blur-md bg-black/60 border-b border-neutral-900/60 py-4" 
+            ? "backdrop-blur-md bg-brand-black/60 border-b border-brand-border py-4"
             : "bg-transparent py-6"
         }`}
       >
@@ -140,12 +140,11 @@ export default function LandingPage({
         >
           {/* Large Cinematic Typography */}
           <h1 className="text-6xl sm:text-8xl md:text-[120px] font-sans font-medium tracking-tighter text-white leading-[0.85] select-none text-balance max-w-5xl">
-            The New Standard of Video Creation
+            VideoKing-AI
           </h1>
 
           <p className="text-neutral-400 text-lg md:text-xl max-w-2xl mx-auto font-sans tracking-tight">
-            A world-class creative operating system powered by advanced AI.
-            Built for precision, designed for scale.
+            A premium AI creative operating system. Built for precision. Designed for scale.
           </p>
 
           {/* CTA Button Group */}
@@ -450,7 +449,7 @@ export default function LandingPage({
       </section>
 
       {/* --- PRODUCT FEATURES SECTION --- */}
-      <section id="features-section" className="py-32 md:py-48 border-t border-neutral-900/30 bg-black relative z-10">
+      <section id="features-section" className="py-32 md:py-48 border-t border-brand-border bg-brand-black relative z-10">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
           {/* Grid Layout of Features and whitespace */}

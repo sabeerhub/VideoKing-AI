@@ -27,7 +27,7 @@
   }
 
   .premium-card {
-    @apply bg-brand-dark-gray border border-brand-border rounded-2xl shadow-premium transition-all duration-300 hover:border-brand-border-hover hover:shadow-premium-hover;
+    @apply bg-brand-dark-gray border border-brand-border rounded-xl shadow-premium transition-all duration-300 hover:border-brand-border-hover hover:shadow-premium-hover;
   }
 
   .premium-input {

@@ -348,8 +348,8 @@ export default function Dashboard({ userProfile, onLogout }: DashboardProps) {
 
   return (
     <div 
-      id="studio-layout shadow" 
-      className="h-screen bg-brand-black text-neutral-100 flex flex-col overflow-hidden font-sans select-none"
+      id="studio-layout"
+      className="h-screen bg-brand-black text-neutral-100 flex flex-col overflow-hidden font-sans select-none shadow"
     >
       
       {/* ----------------------------------------------------- */}
@@ -423,7 +423,7 @@ export default function Dashboard({ userProfile, onLogout }: DashboardProps) {
               onDragLeave={handleDragLeave}
               onDrop={handleDrop}
               id="drag-drop-curtain"
-              className="absolute inset-0 bg-black/95 z-50 flex items-center justify-center p-8 border-2 border-dashed border-neutral-800 m-4 rounded-3xl"
+              className="absolute inset-0 bg-black/95 z-50 flex items-center justify-center p-8 border-2 border-dashed border-neutral-800 m-4 rounded-2xl"
             >
               <div className="text-center space-y-3 pointer-events-none">
                 <Upload size={24} className="mx-auto text-white animate-bounce" />
@@ -471,7 +471,7 @@ export default function Dashboard({ userProfile, onLogout }: DashboardProps) {
                   )}
 
                   {/* Centered Premium Prompt compose card */}
-                  <div className="bg-neutral-900/30 border border-white/[0.05] p-3 rounded-[32px] shadow-3xl backdrop-blur-2xl space-y-3 ring-1 ring-white/[0.05]">
+                  <div className="bg-neutral-900/30 border border-white/[0.05] p-3 rounded-2xl shadow-3xl backdrop-blur-2xl space-y-3 ring-1 ring-white/[0.05]">
                     
                     {/* Attachment mini preview */}
                     <AnimatePresence>
@@ -511,7 +511,7 @@ export default function Dashboard({ userProfile, onLogout }: DashboardProps) {
                           handleSendMessage();
                         }
                       }}
-                      placeholder="Type a prompt to generate or refine your creative vision..."
+                      placeholder="Write your prompt to generate a viral video..."
                       className="w-full bg-transparent outline-none border-none text-base leading-relaxed text-white placeholder:text-neutral-600 p-4 h-24 resize-none font-sans"
                     />
 
@@ -685,7 +685,7 @@ export default function Dashboard({ userProfile, onLogout }: DashboardProps) {
               </div>
 
               {/* Right Column: Visual Output Monitor (Apple Pro layout) */}
-              <div id="designer-preview-rail shadow-sm" className="w-full md:w-[520px] bg-brand-near-black p-6 md:p-8 flex flex-col justify-between overflow-y-auto shrink-0 select-none text-left border-l border-brand-border">
+              <div id="designer-preview-rail" className="w-full md:w-[520px] bg-brand-near-black p-6 md:p-8 flex flex-col justify-between overflow-y-auto shrink-0 select-none text-left border-l border-brand-border shadow-sm">
                 
                 {/* Visual Monitor Header */}
                 <div className="flex items-center justify-between border-b border-brand-border pb-4 h-12 select-none shrink-0">
@@ -719,7 +719,7 @@ export default function Dashboard({ userProfile, onLogout }: DashboardProps) {
                     <div className="space-y-6 animate-fadeIn text-left">
                       
                       {/* Viewport phone mockup */}
-                      <div className="relative aspect-[9/16] max-w-[240px] mx-auto bg-black rounded-[40px] border-[8px] border-neutral-900 shadow-[0_0_0_1px_rgba(255,255,255,0.05),0_30px_60px_-12px_rgba(0,0,0,0.8)] overflow-hidden">
+                      <div className="relative aspect-[9/16] max-w-[240px] mx-auto bg-black rounded-2xl border-[8px] border-neutral-900 shadow-[0_0_0_1px_rgba(255,255,255,0.05),0_30px_60px_-12px_rgba(0,0,0,0.8)] overflow-hidden">
                         
                         <div className="absolute inset-0 bg-gradient-to-b from-neutral-800 via-neutral-950 to-black p-5 flex flex-col justify-between relative">
                           

@@ -160,8 +160,8 @@ export default function AuthPage({ onBackToLanding, onAuthSuccess, initialMode =
 
   return (
     <div 
-      id="split-auth-root shadow-sm"
-      className="min-h-screen bg-brand-black text-neutral-200 flex flex-col lg:grid lg:grid-cols-12 overflow-hidden select-none font-sans"
+      id="split-auth-root"
+      className="min-h-screen bg-brand-black text-neutral-100 selection:bg-neutral-800 selection:text-white flex items-center justify-center p-6 relative overflow-hidden font-sans shadow-sm"
     >
       
       {/* ----------------------------------------------------------------- */}

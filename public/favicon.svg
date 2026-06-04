@@ -1,4 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <path d="M6 22L4 10L10 14L16 6L22 14L28 10L26 22H6Z" fill="white"/>
-  <rect x="6" y="24" width="20" height="2" fill="white" opacity="0.5"/>
+  <style>
+    path, rect { fill: #000; }
+    @media (prefers-color-scheme: dark) {
+      path, rect { fill: #fff; }
+    }
+  </style>
+  <path d="M6 22L4 10L10 14L16 6L22 14L28 10L26 22H6Z"/>
+  <rect x="6" y="24" width="20" height="2" opacity="0.5"/>
 </svg>
